@@ -56,7 +56,7 @@ export default function Pokemon() {
         <h1 className="text-3xl font-semibold text-center text-gray-800 mb-6 mt-5">
           Pokemon List
         </h1>
-        <table className="min-w-full table-auto bg-white shadow-md rounded-lg border-separate border-spacing-0">
+        <table className="min-w-full table-auto bg-white shadow-md rounded-lg ">
           <thead>
             <tr className="bg-gray-100 text-gray-700 text-left">
               <th className="py-2 px-4">No</th>
@@ -69,9 +69,7 @@ export default function Pokemon() {
               <tr key={index} className="border-b hover:bg-gray-50">
                 <td className="py-2 px-4">{pagination.offset + index + 1}</td>
                 <td className="py-2 px-4 capitalize">{pokemon.name}</td>
-                <td className="py-2 px-4 text-blue-500 truncate">
-                  {pokemon.url}
-                </td>
+                <td className="py-2 px-4 text-blue-500">{pokemon.url}</td>
               </tr>
             ))}
           </tbody>
@@ -80,7 +78,7 @@ export default function Pokemon() {
           <button
             onClick={handlePrevPage}
             disabled={pagination.page === 1}
-            className="px-4 py-2 bg-gray-500 text-white font-semibold rounded-md shadow-sm hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-gray-300 disabled:opacity-50 transition-all duration-300"
+            className="px-4 py-2 bg-gray-500 text-white font-semibold rounded-md shadow-sm hover:bg-gray-600"
           >
             Previous
           </button>
@@ -89,7 +87,7 @@ export default function Pokemon() {
           </span>
           <button
             onClick={handleNextPage}
-            className="px-4 py-2 bg-gray-500 text-white font-semibold rounded-md shadow-sm hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-gray-300 disabled:opacity-50 transition-all duration-300"
+            className="px-4 py-2 bg-gray-500 text-white font-semibold rounded-md shadow-sm hover:bg-gray-600"
           >
             Next
           </button>
