@@ -39,7 +39,7 @@ export function useFormGen(props: UseFormGeneratorProps): UseFormGeneratorReturn
                 }
             });
         }, 500); // timeout set here just to illustrate a loader for form gen.
-    }, [props.model]);
+    }, []);
 
     useEffect(() => {
         const isDirty = !deepEqual(model, state.defaultValue);
