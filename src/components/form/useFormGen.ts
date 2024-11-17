@@ -39,7 +39,7 @@ export function useFormGen(props: UseFormGeneratorProps): UseFormGeneratorReturn
                 }
             });
         }, 500); // timeout set here just to illustrate a loader for form gen.
-    }, []);
+    }, [props.model]);
 
     useEffect(() => {
         const isDirty = !deepEqual(model, state.defaultValue);
@@ -54,12 +54,14 @@ export function useFormGen(props: UseFormGeneratorProps): UseFormGeneratorReturn
     }, [model, state.defaultValue, state.isDirty]);
 
     const updateModelValue = useCallback((path: ModelPath, definition: FieldDefinition, value: PrimitiveValues) => {
+        //model tidak diupdate, karena yang berubah adalah newModel bukan prev, jadi yang direturn adalah newModel.
         setModel((prev) => {
             const newModel = cloneObject(prev);
             set(newModel, path, value);
-            return prev;
+            //return prev;
+            return newModel;
         });
-    }, [model, state])
+    }, [])
 
     const handleValidFlow = async(onValid: SubmitHandler, modelForSubmit: FormModel) => {
 
