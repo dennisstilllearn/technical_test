@@ -52,13 +52,13 @@ export default function Pokemon() {
   }, [pagination]);
   return (
     <>
-      <div>
-        <h1 className="text-3xl font-extrabold text-center text-indigo-600 mb-8">
+      <div className="container mx-auto pb-5">
+        <h1 className="text-3xl font-semibold text-center text-gray-800 mb-6 mt-5">
           Pokemon List
         </h1>
         <table className="min-w-full table-auto bg-white shadow-md rounded-lg border-separate border-spacing-0">
           <thead>
-            <tr className="bg-indigo-600 text-white text-left">
+            <tr className="bg-gray-100 text-gray-700 text-left">
               <th className="py-2 px-4">No</th>
               <th className="py-2 px-4">Pokemon Name</th>
               <th className="py-2 px-4">Pokemon URL</th>
@@ -66,7 +66,7 @@ export default function Pokemon() {
           </thead>
           <tbody>
             {pokemonList.map((pokemon, index) => (
-              <tr key={index} className="border-b hover:bg-indigo-50">
+              <tr key={index} className="border-b hover:bg-gray-50">
                 <td className="py-2 px-4">{pagination.offset + index + 1}</td>
                 <td className="py-2 px-4 capitalize">{pokemon.name}</td>
                 <td className="py-2 px-4 text-blue-500 truncate">
@@ -76,20 +76,20 @@ export default function Pokemon() {
             ))}
           </tbody>
         </table>
-        <div className="flex items-center justify-center mt-5 gap-5">
+        <div className="flex items-center justify-center mt-5 gap-4">
           <button
             onClick={handlePrevPage}
             disabled={pagination.page === 1}
-            className="px-6 py-3 bg-indigo-600 text-white font-semibold rounded-full shadow-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-300 disabled:opacity-50 transition-all duration-300"
+            className="px-4 py-2 bg-gray-500 text-white font-semibold rounded-md shadow-sm hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-gray-300 disabled:opacity-50 transition-all duration-300"
           >
             Previous
           </button>
-          <span className="text-lg font-medium text-gray-800">
+          <span className="text-lg font-medium text-gray-700">
             {pagination.page}
           </span>
           <button
             onClick={handleNextPage}
-            className="px-6 py-3 bg-indigo-600 text-white font-semibold rounded-full shadow-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-300 disabled:opacity-50 transition-all duration-300"
+            className="px-4 py-2 bg-gray-500 text-white font-semibold rounded-md shadow-sm hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-gray-300 disabled:opacity-50 transition-all duration-300"
           >
             Next
           </button>
